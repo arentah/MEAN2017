@@ -1,0 +1,437 @@
+Data types in js
+- numeric
+    - var a = -2;
+    - var a = 3.145…
+- string
+    - var a = “hi”;
+    - var a = ‘hi”;
+    - var a = “-/“hi/“-”;
+- boolean
+    - var a = true;
+- null
+    - var a = null;
+- undefined
+    - var a;
+- symbol (not covered in course)
+
+// get the type of a variable
+console.log( typeof variableName );
+// null variable returns an object
+
+arithmetic operators
+= + - * /
+* & / have precedence over + & -
+
+shorthand ops
++=  -=  *=  /=
+
+unary ops
+++  —
+
+ternary operator
+condition ? true : false
+
+arrays
+var pens;
+pens = [“red”, “blue”, “green”, “orange”];
+or
+pens = new Array(“red”, “blue”, “green”, “orange”); // object
+
+console.log(pens);
+
+Objects have properties & methods
+properties: meta information about the object
+console.log(“Array length: “, pens.length);
+methods: functions that belong to the object
+pens.reverse();
+
+pens.shift(); // remove first value of the array
+
+pens.unshift(“purple”, “black”); // add comma-separated list of values to the front of the array
+
+pens.pop(); // remove the last value of the array
+
+pens.push(“pink”, “prussian blue”); // add comma-separated list of values to the end of the array
+
+pens.splice(pos, n); // find the specified position (pos) and remove n numbers starting at pos
+
+var newPens = pens.slice(); // creates a copy of an array
+
+var result = pens.indexOf(search, index); // return the first element index that matches the search starting from index element
+
+// var arrayString = pens.join(separator);
+var pens = pens = [“red”, “blue”, “green”, “orange”];
+var arrayString = pens.join();
+console.log(arrayString);
+// prints
+// red, blue,green,orange
+var arrayString = pens.join(“, “);
+console.log(arrayString);
+// prints:
+// red, blue, green, orange
+
+
+Functions
+type of functions: named functions, anonymous functions, immediately invoked function expressions
+
+function name(a,b){
+}
+
+
+anonymous function example
+
+var a = 5/7;
+var b = 18/25;
+var theBiggest = function(){
+	var result;
+	a>b ? result = [“a”, a] : result = [“b”, b];
+	console.log(result);
+}
+theBiggest();
+
+or
+
+var theBiggest = function(a,b){
+	var result;
+	a>b ? result = [“a”, a] : result = [“b”, b];
+	return result;
+}
+
+console.log(theBiggest(7/9,13/25));
+
+Immediately invoked functional expressions
+var theBiggest = (function(a,b){
+	var result;
+	a>b ? result = [“a”, a] : result = [“b”, b];
+	return result;
+})(7/9, 13/25)
+console.log(theBiggest);
+// prints same as above
+
+
+let
+function logScope(){
+	var localVar = 2;
+	if(localVar){
+		var localVar = “I’m different!”;
+		console.log(“nested localVar: “, localVar);
+	}
+	console.log(“logScope localVar: “, localVar);
+}
+logScope();
+// prints:
+nested localVar: I’m different!
+logScope localVar: I’m different!
+—————————————————
+function logScope(){
+	let localVar = 2;
+	if(localVar){
+		let localVar = “I’m different!”;
+		console.log(“nested localVar: “, localVar);
+	}
+	console.log(“logScope localVar: “, localVar);
+}
+logScope();
+// prints:
+nested localVar: I’m different!
+logScope localVar: 2
+—————————————————
+function logScope(){
+	var localVar = 2;
+	if(localVar){
+		let localVar = “I’m different!”;
+		console.log(“nested localVar: “, localVar);
+	}
+	console.log(“logScope localVar: “, localVar);
+}
+logScope();
+// prints:
+nested localVar: I’m different!
+logScope localVar: 2
+—————————————————
+function logScope(){
+	var localVar = 2;
+	if(localVar){
+		let localVar = “I’m different!”;
+		console.log(“nested localVar: “, localVar);
+	}
+	console.log(“logScope localVar: “, localVar);
+}
+logScope();
+// gives error
+
+
+
+dot & bracket notation
+dot notation: course.title
+bracket notation: course[“title”]
+————————————————
+dot notation: course.WP:image
+bracket notation: course[“WP:image”]
+
+
+closure: a function inside a function, that relies on variables in the outside function to work.
+function doSomeMath(){
+	var a = 5;
+	var b = 4;
+
+	function multiply(){
+		var result = a*b;
+		return result;
+	}
+
+	return multiply;
+}
+var theResult = doSomeMath();
+
+console.log(“The result: “, theResult());
+————————————————————
+Browser and document it displays are objects, along with the browser window, document inside the window, navigation button, location or URL, etc. These objects are modeled by the Browser Object Model (BOM)
+
+window.innerWidth
+window.open
+window.document or just document since javascript lives inside the window
+
+window is the top-level object in BOM
+
+document has 2 nodes: head and body
+head holds all invisible objects such as title, link, meta, script, etc
+body holds all visible nodes in viewport
+
+document object is nested inside the window object object
+
+
+DOM methods:
+// get element with specified ID
+document.getElementsByID(“some-ID”);
+// get all elements with specified class name as array
+document.getElementsByCLassName(“classname”);
+// get all elements with specified HTML tag as array
+document.getElementsByTagName(“HTML tag”);
+
+// get first element matching specified selector(s)
+document.querySelector(“.main-nav a”);
+/// get all elements matching specified selector(s)
+document.querySelectorAll(“.post-content p”);
+
+// gives the first link inside an element with the class has children inside the element with the class menu
+document.quertySelector(“.menu .has-children a”);
+
+// gives any link pointing to LinkedIn inside the element with a class social nav
+document.querySelectorAll( “.social-nav a[href*=‘linkedin.com’]”);
+
+// gives all links inside list items inside either the menu or the social nav element as a node list
+document.querySelectorAll(“.menu li a, .social-nav li a”);
+
+
+
+Adding new DOM elements
+// create an element
+.createElement();
+// create text node
+.createTextNode();
+// place one child node inside another
+.appendChild();
+
+// change font color of text
+document.querySelector(“.cta a”).style.color = “purple”
+
+// css inline approach
+document.querySelector(“.cta a”).cssText = “padding:lem; color: white; background-color: red;”
+
+//document.querySelector(“.cta a”).setAttribute(“style”,”padding: 2cm”)
+
+
+
+
+
+
+
+part 5 notes
+BOM (browser object model)
+type in console in console:
+window.innerWidth // width of window
+window.innerHeight // height of window
+window.open(); // open new tab
+
+in the window object, there’s a document object contains the current html
+
+to access window object, type in the console:
+window.document
+
+or just call “document” because javascript lives inside the window
+
+document has its own object model called DOM (document object model)
+
+when a document is loaded into the browser, it is loaded into the document object in the BOM, and a DOM is created for just this document instance
+￼
+- standard html a document, there’s an html object containing 2 nodes: head & body
+- head holds all invisible objects like title, link, meta, script, etc.
+- body hols all visible nodes in viewport
+
+properties:
+document.body;
+document.title;
+document.URL;
+
+methods:
+// get element with specified ID
+document.getElementsByID(“some-ID”);
+// get all elements with specified class name as array
+document.getElementsByCLassName(“classname”);
+// get all elements with specified HTML tag as array
+document.getElementsByTagName(“HTML tag”);
+
+// get first element matching specified selector(s)
+document.querySelector(“.main-nav a”);
+/// get all elements matching specified selector(s)
+document.querySelectorAll(“.post-content p”);
+
+document.querySelector(“.masthead”)
+document.querySelectorAll(“a”)
+document.querySelector(“.menu .has-children a”)
+document.querySelectorAll(“.social-nav a[href*=‘linkedin.com’]”)
+document.querySelectorAll(“ .menu li a, .social-nav li a”)
+
+dot signifies class
+hash signifies id
+
+document.querySelector(“.main-title”).innerHTML
+// prints “Welcome to Moonwalk Manor”
+document.querySelector(“.main-title”).outerHTML
+// prints “<h2 class=“main-title”>Welcome to Moonwalk Manor</h2>
+document.querySelector(“.main-title”).innerHTML = “Change title”
+// changes title from “Welcome to Moonwalk Manor” to “Change title”
+document.querySelector(“#showcase”).id = “slideshow”
+// changes id to slideshow
+document.querySelector(“.masthead”)
+// has 2 class names
+document.querySelector(“.masthead”).className
+// prints “masthead clear” which are the two class names
+document.querySelector(“.masthead”).classList
+// returns classes in a DOM token list
+document.querySelector(“.masthead”).classList[1]
+// prints clear because clear is the second class in the DOM token list
+
+
+class list methods:
+add, remove, item, toggle, contains
+
+document.querySelector(“.masthead”).classList
+// returns [“masthead”, “clear”]
+
+Add:
+document.querySelector(“.masthead”).classList.add(“new-class”)
+document.querySelector(“.masthead”).classList
+// now returns [“masthead”, “clear”, “new-class”]
+
+Remove:
+document.querySelector(“.masthead”).classList.remove(“clear”)
+document.querySelector(“.masthead”).classList
+// now returns [“masthead”, “new-class”]
+
+Item:
+document.querySelector(“.masthead”).classList[1]
+// prints clear because clear is the second class in the DOM token list
+
+Toggle:
+document.querySelector(".new-class").classList.toggle("masthead")
+// true
+document.querySelector(".new-class").classList.toggle("masthead")
+// false
+
+Contains:
+document.querySelector(“.new-class”).classList.contains(“masthead”)
+// prints true;
+document.querySelector(“.new-class”).classList.toggle(“masthead”)
+document.querySelector(“.new-class”).classList.contains(“masthead”)
+// prints false
+
+
+access/change attributes
+Element.hasAttribute(“name”);
+Element.getAttribute(“name”);
+Element.setAttribute(“name”, “define”);
+Element.removeAttribute(“name”);
+
+
+// get element
+const ELEM = document.querySelectory(“.main-title”);
+// set inner HTML
+ELEM.innerHTML = “This is the new title”;
+// set outer HTML
+ELEM.outerHTML = ‘<h1 class=“main-title”>This is a new title</h1>’;
+
+
+<figure class=“featured-image”>
+	<img src=“bluepebble.jpg”
+alt=“Earthrise”>
+
+
+// create element
+.createElement();
+// create text node
+.createTextNode();
+// place one child node inside another
+.appendChild();
+
+
+apply inline CSS to an element
+document.querySelector(“.cta a”).setAttribute(“style”,”padding: 2em”)
+document.querySelector(".cta a").setAttribute("style","padding: 2em; color: green; background-color: orange;")
+
+inline CSS overrides whatever CSS is applied to an element
+
+
+#minute {
+	transform: rotate(15deg);
+}
+
+
+event handling — formula for building Javascript functionality around events & takes the form:
+1. identify DOM node the interactive behavior will be attached to (example: a call to action button)
+2. identify event you want to detect like click and bind that to the DOM node
+3. create function that is triggered when the event fires
+
+Browser-level events
+browser behavior (load, window resize, etc.)
+DOM-level events
+content interaction (click, focus, submit, etc.)
+
+common browser-level events
+load — when resource & dependents have finished loading
+error — when resource failed to load
+online/offline — self explanatory
+resize — when viewport is resized
+scroll — when viewport is scrolled up/down/left/right
+
+common DOM events (inside viewport)
+focus — when an element receives focus (clicked, tabbed to, etc)
+blur — when an element loses focus (leaving form field, etc)
+resets/submit — form-specific events
+mouse events — click, mouseover, drag, drop, etc
+
+other events
+media events — relate to audio/video playback
+progress events — monitor ongoing browser progress
+CSS transition events — transition start/run/end
+
+- event handler is just one way of handling events
+- event listener binds functions to browser-level events or ties more than one function o an event
+event listener listens for an event to occur and then passes the event onto the specified function
+
+event handler example: CTA.onclick = …
+event listener example: CTA.addEventListener(“click”, reveal, false);
+
+event listener constantly listens for events and any time the event happens, it kicks in again and again.
+
+
+while loop vs do while loop
+while loop checks condition, then runs block of code inside if true
+do while loop runs block of code inside, then checks condition
+
+break
+Terminate the current loop & jumps to next statement in the script
+
+continue
+terminate the current iteration of the loop, then jumps back up & runs the next iteration

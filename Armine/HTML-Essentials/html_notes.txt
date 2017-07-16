@@ -1,7 +1,16 @@
 HTML (Hypertext Markup Language)
+
 html -- markup language (used to mark up content to explain what the content is and how it relates to other content on the page by using tags)
 p tag -- paragraph
 nav tag -- navigation
 opening paragraph tag: <p>
 closing paragraph tag: </p>
+content of tag: ...
 paragraph element: <p> .... </p>
+element: tags & elements
+
+attributes (informative, functional)
+informative: <p lang="en"> is a paragraph tag with an added attribute (language = english)
+functional: link using anchor element? such as href
+
+<h1>...</h1> is heading1

@@ -14,3 +14,5 @@ informative: <p lang="en"> is a paragraph tag with an added attribute (language 
 functional: link using anchor element? such as href
 
 <h1>...</h1> is heading1
+<em>...</em> is emphasis tag (italicize)
+<strong>...</strong> (bold)

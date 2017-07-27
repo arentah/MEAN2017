@@ -23,7 +23,7 @@ https://www.w3.org/TR/html5/
 WHAT working group's HTML living standard (dropped HTML5 from it)
 https://html.spec.whatwg.org/multipage/
 
-simpler websites:
+simpler references:
 webplatform.org
 https://developer.mozilla.org/en-US/docs/Web/html/reference
 

@@ -16,3 +16,14 @@ functional: link using anchor element? such as href
 <h1>...</h1> is heading1
 <em>...</em> is emphasis tag (italicize)
 <strong>...</strong> (bold)
+
+W3C's version of HTML5
+https://www.w3.org/TR/html5/
+
+WHAT working group's HTML living standard (dropped HTML5 from it)
+https://html.spec.whatwg.org/multipage/
+
+simpler websites:
+webplatform.org
+https://developer.mozilla.org/en-US/docs/Web/html/reference
+

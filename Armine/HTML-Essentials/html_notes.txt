@@ -27,3 +27,5 @@ simpler references:
 webplatform.org
 https://developer.mozilla.org/en-US/docs/Web/html/reference
 
+block level elements -- take up their own line within the flow of the document
+inline level elements -- appear within the flow of other content

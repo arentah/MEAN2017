@@ -17,6 +17,9 @@ functional: link using anchor element? such as href
 <em>...</em> is emphasis tag (italicize)
 <strong>...</strong> (bold)
 
+headers:
+h1...h6
+
 W3C's version of HTML5
 https://www.w3.org/TR/html5/
 
@@ -29,3 +32,10 @@ https://developer.mozilla.org/en-US/docs/Web/html/reference
 
 block level elements -- take up their own line within the flow of the document
 inline level elements -- appear within the flow of other content
+
+content types:
+metadata -- setting up presentation or behavior of the rest of the content (mainly found in head of doc)
+embedded -- any content that imports resources into the doc
+interactive -- any content specifically intended for user interaction
+heading -- header of section; explicitly marked up with sectioning elements or be applied by heading content itself
+phrasing content -- 

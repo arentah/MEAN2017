@@ -34,8 +34,48 @@ block level elements -- take up their own line within the flow of the document
 inline level elements -- appear within the flow of other content
 
 content types:
-metadata -- setting up presentation or behavior of the rest of the content (mainly found in head of doc)
-embedded -- any content that imports resources into the doc
-interactive -- any content specifically intended for user interaction
-heading -- header of section; explicitly marked up with sectioning elements or be applied by heading content itself
-phrasing content -- 
+- metadata — setting up presentation or behavior of the rest of the content (primarily found in head of doc)
+- embedded — any content that imports other resources into the doc
+- interactive — any content specifically intended for user interaction
+- heading — defines header of section; explicitly marked up with sectioning elements or be applied by heading content itself
+- phrasing content — text of document; any elements used to mark up text within paragraph level structures
+- ...
+
+<pre> </pre>
+displays text however you see it within tags
+
+<em> </em> emphasis; italicize; a screen reader would change their vocal inflection
+<i> </i> italicize; screen reader won’s change vocal inflection; presentational tag
+<strong> </strong> same 
+<b> </b> 
+
+headings 1-6
+use headings in order, don’t jump from h2 to h5
+
+if you don’t have content inside the paragraph, you don’t need to have an empty paragraph
+
+<br />
+self-closing tag
+
+<dl> </dl> definition list that has 2 parts which are <dt> and <dt> </dt> term
+<dd> </dd> definition
+
+&nbsp;
+non breaking space
+
+html doesn’t use align attribute anymore because CSS handles it now
+
+sectioning elements
+<h1>…<h6>
+<article>
+<aside>
+<nav>
+<section>
+
+semantic elements
+<header>
+<main>
+<footer>
+
+sectioning element — every time that it’s used within the document outline, a new section is created
+

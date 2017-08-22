@@ -1,0 +1,113 @@
+/*Global Attributes
+--------------------------------------*/
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.image{
+    border-radius: 50%;
+}
+
+.content{
+    max-width: 950px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 50px;
+}
+
+.education h1 {
+    font-size: 40px;
+    margin-top: 0;
+}
+
+.narrow{
+    float: left;
+    width: 25%;
+}
+
+.wide{
+    text-align: center;
+    float: left;
+    width: 55%;
+    min-height: 175px;
+    margin-left: 20px;
+    margin-top: -20px;
+}
+
+.narrow2 {
+    float: left;
+    width: 40%;
+}
+.wide2{
+    float: right;
+    width: 55%;
+    margin-left: 5%;
+}
+
+.wide h3{
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+
+h1, h2, h3, h4, p{
+    color: white;
+}
+
+.top{
+    margin-bottom: 0;
+}
+.indent {
+    margin-left: 30px;
+    margin-top: 0;
+}
+
+
+
+
+/*Header and Footer
+--------------------------------------*/
+header,
+footer{
+    background: #2B2D42;
+}
+
+/*Header
+--------------------------------------*/
+header{
+
+}
+
+header h1{
+    font-size: 60px;
+}
+
+/*Footer
+--------------------------------------*/
+
+
+
+/*Education
+--------------------------------------*/
+.education{
+    background-color: darkorchid;
+}
+
+
+/*Experience
+--------------------------------------*/
+.experience{
+    background-color: cyan;
+}
+/*Projects
+--------------------------------------*/
+
+/*Technical Skills
+--------------------------------------*/
+

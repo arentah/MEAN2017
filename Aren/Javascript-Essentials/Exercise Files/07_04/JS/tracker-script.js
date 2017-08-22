@@ -18,8 +18,8 @@ function mouseCoordinates(e) {
 }
 
 function changeColorOnTouch() {
-    CIRCLE.style.backgroundColor = "green";
-    CIRCLE.style.borderColor = "green";
+    CIRCLE.style.backgroundColor = "yellow";
+    CIRCLE.style.borderColor = "red";
 }
 
 // When the mouse moves, run the mouseCoordinates function.

@@ -1,0 +1,30 @@
+.box { /* box styles */
+  width: 60px;
+  height: 50px; 
+  background: lightblue;
+  margin-bottom: 10px;
+}
+.parent {
+  position: relative;
+}
+.relative { 
+  position: relative;
+  top: 10px;
+  left: 40px;
+}
+.absolute {
+  position: absolute; 
+  left: 60px;
+  bottom: 10px;
+}
+.fixed {
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+
+
+
+
+

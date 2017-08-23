@@ -1,0 +1,51 @@
+p:first-child {
+    color: red;
+}
+
+p:last-child {
+    color: blue;
+}
+
+p:first-of-type {
+    color: green;
+}
+
+p:last-of-type {
+    color: orange;
+}
+
+
+/*
+part 2
+*/
+
+.wrapper {
+  overflow: hidden;
+}
+.box {
+  width: 20px;
+  height: 20px;
+  border: 1px solid red;
+  float: left;
+  text-align: center;
+  padding: 20px;
+}
+.box:nth-child(3n+2){
+  background: blue;
+}
+
+.box::first-letter {
+  color: green;
+}
+
+.box:before {
+  content: "4";
+  color: red;
+}
+
+.box:after {
+  content: "5";
+  color: red;
+}
+
+

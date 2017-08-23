@@ -1,0 +1,11 @@
+input {
+    margin: 4px;
+}
+
+[type]{
+    border: 1px solid red;
+}
+
+[type="search"]{
+    border: 1px solid blue;
+}

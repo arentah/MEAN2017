@@ -1,0 +1,7 @@
+section a {
+    color: red;
+}
+
+section > a {
+    color: blue;
+}

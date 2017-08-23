@@ -1,0 +1,50 @@
+/* General styles */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+nav {
+  background: purple;
+  margin-bottom: 5px;
+}
+a {
+  background: lightblue;
+}
+
+/* Navigation using 'display' */
+.display {
+  text-align: center;
+  font-size: 0;
+}
+.display a {
+  padding: 10px;
+  display: inline-block;
+  width: 25%;
+  /* margin-left: -1%;*/
+  font-size: 16px;
+}
+
+/* Navigation using 'float' */
+.float {
+  overflow: hidden;
+  /* float: right; */
+}
+.float a {
+  float: left;
+  padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

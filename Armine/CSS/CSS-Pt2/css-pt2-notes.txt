@@ -1,0 +1,176 @@
+css pt 2 notes
+
+- inline styles take precedent over internal and external styles
+
+for classes use .
+for ids use #
+for other attributes, use []
+
+child combinators
+section > a {}
+only selects a section element with an a element as its child
+
+sibling combinators
+h2 + p {}
+select p that directly follows h2;
+h2 ~ p {}
+select any p that follows h2;
+
+<p class=“one two” id=“three”></p>
+.one.two {}
+select if element has both classes
+
+p.one vs p .one
+p.one means <p class=“one”></p>
+p .one means: (descendant selector)
+<p>
+	<… class=“one”> </…>
+</p>
+
+:first-child
+:last-child
+:first-of-type
+:last-of-type
+:nth-child(odd or 3 or a*n+b (algebraic formula for selection) )
+n always starts at 0 in an+b
+
+.element::first-element {}
+
+
+
+float vs display vs position
+float
+- variable & flexible content (e.g., image surrounded by text or blog posts with different lengths)
+- global or large page structures (e.g., header, footer, and sidebar)
+display
+- aligning page components (make sure to account for the extra space)
+- aligning elements that need to be center aligned
+- doesn’t change the page’s natural page flow
+position
+- positioning elements relative to another element
+- aligning elements outside of the document flow
+- positioning elements to a specific spot in the document
+- shouldn’t be used for page layouts since it takes the element out of the stacking order, with exception of relative positioning
+can’t use float, display, & position together on same element
+if position is used then float is ignored
+if float is used, then display is ignored
+
+when html tag is nested, elements are stacked in layers
+z-axis — describes how layers are stacked on top of each other (stacking context)
+
+/*
+NATURAL STACKING ORDER
+
+1. The root element (<html>)
+2. The viewport (<body>)
+3. Block level elements in the normal page flow
+4. Floated elements, not positioned
+5. Inline descendant elements in the normal flow
+6. Positioned elements
+*/
+
+create your own stack order (position must be applied)
+the higher the z value, the higher the stacking level
+position: relative;
+z-index: 100;
+
+
+
+when using background-size, it must be included after background-position, with a forward slash (/)
+selector {
+	background: url(image.jpg) no-repeat fixed 0px 0px / cover;
+}
+
+selector {
+	background-color: red; /* value will be overwritten */
+	background: url(images/pic.png) no-repeat;
+}
+
+rgba( , , , );
+red-blue-green-alpha_transparency
+
+multiple background images
+/* shorthand */
+background: url(image1.png) no-repeat top right, url(image2.png) no-repeat bottom left;
+/* longhand */
+background-image: url(image1.png), url(image.png);
+background-repeat: no-repeat, no-repeat;
+background-position: top right, bottom left;
+
+background images & gradients
+selector {
+	background: linear-gradient(color, color), url(image.png);
+}
+
+	background: linear-gradient(rgba(), rgba()), url(image.png);
+
+http://rgb.to —> website for rob values;
+
+
+http://www.liquidapsive.com
+adaptive vs liquid vs responsive vs static
+adaptive — responsive but optimized for specific viewport sizes
+liquid — based on percentage widths; each block of content takes up a percentage of the page, making the sizing relative to the window size
+static — one screen size
+responsive — changes for every screen size; changes to different layout
+
+media queries — used to specify how a document is presented on different media such as screen & print
+
+breakpoints — requirements (like viewport width) used to determine when to change the style & layout of webpage
+
+
+graceful degradation vs progressive enhancement
+graceful degradation
+- design for modern browsers first
+- provide fallbacks for unsupported features
+- ensure basic functionality works for older browsers
+progressive enhancement
+- focus on content & accessibility first
+- create base-level experience first
+- add advance features for enhancements
+
+max-width — if viewport is smaller than fixed width, content becomes 100% of its container; when larger, maxes out at 400
+min-width, max-height, min-height
+
+
+fluid vs responsive
+- fluid layouts are relative, but content & components get wider/narrower
+- responsive layouts change based on screen size
+
+
+media queries — create conditions for applying specific CSS styles
+media query has 2 components: media type & media feature
+
+media types:
+- print — matches to printers & other print-related displays
+- speech — matches screen readers
+- screen — matches all devices that aren’t print/speech
+- all — matches to all devices
+
+media features:
+- has same syntax as CSS properties
+- used to describe requirements of device
+- specifies single feature of device (e.g. width, height, device orientation, etc.)
+
+tympanus.net/codrops/css_reference/media-queries/
+
+width
+- use min- or max- prefix to specify greater than or less than condition; (min-width; max-width)
+
+adding media queries
+- added to <link> tag to load specific CSS files to html page
+<link media=“screen and (max-width: 400px) “ rel=“stylesheet” href=“mobile.css”>
+- added to CSS files using @media keyword & { } to contain CSS
+@media (max-width: 400px) {
+	.selector {
+		…
+	}
+}
+/* Both declarations are the same */
+@media all and (max-width: 400px) { }
+@media (max-width: 400px) { }
+
+
+width refers to the width of the browser’s visible screen area or viewport including the size of a scroll bar (if applicable)
+- not flexible because resolution has to be the exact size
+

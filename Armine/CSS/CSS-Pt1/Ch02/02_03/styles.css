@@ -1,0 +1,15 @@
+body {
+  color: green;
+}
+
+h1 {
+  color: orange;
+}
+
+.demo {
+  color: blue;
+}
+
+#demo{
+  color: red;
+}

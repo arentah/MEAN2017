@@ -1,0 +1,32 @@
+main section.s1 h2#h2 {
+  color: blue;
+}
+
+h1, h2, h3 {
+  color: pink;
+}
+
+a:hover {
+  color: red;
+}
+
+a:link {
+  background: olive;
+  padding: 6px;
+}
+
+a:visited {
+  background: lightblue;
+}
+
+a:active {
+  border: 1px solid black;
+}
+
+p:hover {
+  background: gold;
+}
+
+a:focus, input:focus {
+  outline: 3px solid black;
+}

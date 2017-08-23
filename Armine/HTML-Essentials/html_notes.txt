@@ -79,3 +79,122 @@ semantic elements
 
 sectioning element — every time that it’s used within the document outline, a new section is created
 
+main element doesn’t create a section in the outline, but article does
+
+aside element
+represents a section of a page that consists of content that’s tangentially related to the content around the aside element, & which could be considered separate from that content; ex: sidebar
+
+div tag — use it as a last resort
+use id or class attributes to give semantic meaning
+id —> can only use once each
+class —> can reuse as many times as you want
+
+- header element
+represents introductory content for its nearest ancestor (parent tag sectioning content or sectioning route element);
+contains group of introductory or navigational aids;
+ex: articles, sections, a sides, etc.
+- footer element
+represents a footer for it’s nearest ancestor (parent element);
+needs information about its section — who wrote it, links to related documents, copyright data & the like.
+- main element
+consists of content that’s directly related to or expands upon the central topic of a document or central functionality of an application;
+not a sectioning content;
+content must be unique & main content of the page (ex: excludes content that’s repeated across a set of documents such as site navigation links, copyright information, logos, banners, etc.)
+
+
+WAI-ARIA — Web Accessibility Initiative Accessible Rich Internet Applications
+
+role attribute (helps create accessible sites & applications)
+
+link element is used to request external resources for the page
+
+use anchor element to create a link (not link element)
+
+<a></a> attributes
+href — Hypertext reference
+target — open a page in a new window or tab, or control where a page opens within a frame set. ex: target = “(_blank, _parent, _self, _top, _framename)”
+rel — describes relationship of target object to link object; ex: rel = “(next, alternate, nofollow, author, noreferrer, bookmark, prefetch, download, prev, help, search, license, tag)”
+title — helps make links more accessible by giving the link a title, which can be read & interpreted by assistive devices, search engines, or other content readers
+
+
+GLUT links — redirect users to pages and sites that are external to the current site
+
+<a href="https://www.lynda.com/" title="Visit lynda.com">lynda.com</a>
+opens lynda.com in the same tab
+
+<a href="https://www.lynda.com/" title="Visit lynda.com" target="_blank">lynda.com</a>
+opens lynda.com in a new tab
+
+<a href="_assets/syntax.zip" title="HTML syntax reference">HTML syntax reference!</a>
+browser recognizes zip file but cannot open it within the browser, so it downloads it
+
+<a href="_assets/syntax.pdf” title="HTML syntax reference">HTML syntax reference!</a>
+browser recognizes pdf file and is able to open it within the browser, so it does
+
+<a href="_assets/syntax.pdf" title="HTML syntax reference" download>HTML syntax reference!</a>
+browser recognizes pdf file and can open it within the browser but is forced to download it
+
+<a href="_assets/syntax.pdf" title="HTML syntax reference" download="HTML_syntax">HTML syntax reference!</a>
+downloads syntax.pdf as HTML_syntax.pdf
+
+linking to page regions
+- give section an id, for example “one”
+- link will be <a href=“#one” title=“section one”>Link to Section 1</a>
+
+<p>Link to <a href="destination.htm#two" title="destination">Section 2</a> of the destination.htm page</p>
+
+
+3 types of lists
+unordered
+ordered
+definition
+
+
+unordered list
+<ul> unordered list
+<li> … </li> list item
+…
+</ul>
+
+ordered list
+<ol start="6" reversed>
+      <li>Item one    </li>
+      <li>Item two    </li>
+      <li>Item three    
+        <ol type="A">
+          <li>item 3.1    </li>
+          <li>item 3.2    </li>
+          <li>item 3.3    </li>
+        </ol>
+      </li>
+      <li>item four </li>
+    </ol>
+
+definition/description list
+<dl>
+<dt> — term
+<dd> — definition
+</dl>
+
+
+CSS — cascading style sheets
+comments in html: <!--    comment    -->
+
+inline styles are bad; must change all h2 elements one by one
+
+margin: 0 auto
+0 is for top & botton; auto is for left & right
+
+try to display Georgia, if not then Times New Roman, if not then lastly display whatever serif you have available
+font-family: Georgia, “Times New Roman”;
+system font — font installed on almost every computer when it ships
+“” are necessary if the font has more than one name; ex: “Times New Roman”
+
+font-size: 2em;
+whatever default font size you have, display 2x that
+
+margin: top right bottom left
+margin: 1em 0 .4em
+top 1em; right & left 0; bottom .4em
+
+validator.w3.org

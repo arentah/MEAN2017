@@ -1,0 +1,290 @@
+css pt 1 notes
+
+html — describes content to browser
+css — presentation layer, defines styles, colors, etc.
+javascript — adds interactivity to webpage
+
+html review
+elements — components that define page objects, such as paragraphs, links, etc.
+tags — define elements with angled brackets wrapped around tag name, usually come in pairs
+void/self-closing elements — don’t have closing tags because they are the content; list of void elements in html: area, base, br, col, embed, hr, img, input, keygen, link, menuitem, meta, param, source, track, wbr
+
+<link rel=“stylesheet” href=“style.css”> HTML5
+<link rel=“stylesheet” type=“text/css” href=“style.css”> XHTML
+
+p {
+color: blue;
+}
+- selectors determine which html element to apply styles to; ex: p
+- declaration blocks consist of one or more style rules, enclosed in curly braces; ex: { }
+- declarations are style rules, written in property:value; pairs; ex: color: blue;
+- color is the property
+- blue is the value
+
+https://tympanus.net/codrops/css_reference/
+
+- use . for class and # for id
+- allowed to use the same class as many times as you want, but can use each id only once
+- when choosing a class value, don’t use spaces because spaces indicate there are multiple classes
+
+.style.name {
+…
+}
+only applies … to the element that contains both the style & name class
+
+multiple ids can’t be used in the same html element
+
+
+http://jsfiddle.net/christinatruong/7g3texhq/
+
+<p> Paragraph with a <a href=“#placeholder”>link</a>.<p>
+
+p a {
+	/* will only select links inside of a paragraph */
+}
+
+
+type selector, class selector, id selector, descendant selector (don’t use more than 3 levels, this may cause page to load slower),
+
+combining selectors
+.class-name h1, h2{ }
+—>
+.class-name h1{ }
+h2 { }
+
+.class-name h1, .class-name h2{ }
+—>
+.class-name h1{}
+.class-name h2;
+
+
+
+colours.neilorangepeel.com
+coolors.co
+randoma11y.com/#/?_k=fiwwvp
+
+
+inheritance color attribute doesn’t work with links
+
+https://www.w3.org/TR/CSS21/propidx.html
+which elements can be inherited
+
+precedence:
+#1 — id
+#2 — class
+#3 — type
+
+typography — the study of the design and use of type for communication
+typeface — a set of fonts, designed with common characteristics and composed of glyphs
+font — individual files that are part of a typeface
+http://www.cssfontstack.com/
+generic font options
+serif
+sans serif
+cursive
+fantasy
+monospace
+
+internal font-face source
+@font-face {
+	font-family: ‘Museo Sans’;
+	src: url(museo-sans.ttf);
+}
+body{
+	font-family: ‘Museo Sans’, Arial, sans-serif;
+}
+
+@font-face {
+	font-family: ‘MuseoSans’;
+	src: url(‘../fonts/museo-sant.woff2’) format(‘woff’),
+	       url(‘../fonts/museo-sant.woff’) format(‘woff’),
+}
+
+external font source
+typekit.com
+fonts.google.com
+
+
+font size: (px, em, rem)
+- relative values are calculated based on the nearest ancestor element
+- absolute values are not affected by ancestor elements
+
+
+px:
+- screen measurements
+- absolute value
+- use whole numbers; avoid decimals
+- browser default = 16px
+
+em:
+- named after m
+- relative unit
+- 1em = inherited font-size
+- if no font-size declared, 1em = default = 16px
+
+rem:
+- newer unit; similar to em
+- if no font-size declared, 1rem = 1em = default = 16px
+- relative unit but only to root element (HTML) (relative to html only)
+- same flexibility as em with more straightforward approach
+
+font-weight
+- thickness/boldness of typefaces
+- number values: 100, 200, 300, …, 900
+- normal = 400; bold = 700;
+- bolder and lighter — relative to inherited font-weight; chart: https://codropspz-tympanus.netdna-ssl.com/codrops/wp-content/uploads/2014/11/font-weight-chart.png
+
+font-style
+- add/remove italic style
+- italic, oblique, normal
+
+developer.mozilla.org for more
+
+line-height
+- property that sets the height of the between two lines of text
+- close to font-size
+- value types: px, %, ems, rems, unitless (ex: 2 means 2x the font size)
+
+text-decoration
+- add/remove an underline above, below, or through text
+text-decoration: overline;
+text-decoration: underline;
+text-decoration: line-through;
+text-decoration: none;
+
+text-transform: capitalize;
+text-transform: uppercase;
+text-transform: lowercase;
+text-transform: none;
+
+text-align: center
+- center align text
+- add to HTML element itself or parent element
+- inherited by descendant elements
+
+inline vs block level elements
+inline (div, p, h1)
+block (a, span, strong)
+add background color to element; if color stretched all the way across the container then it is block, if it only spans the width of the content then it is inline
+width & height attributes don’t affect inline elements
+if you use the (display: block) attribute on an inline element, the element will behave as a block element
+
+display: block;
+display: inline-block;
+display: none; (hides)
+
+box model properties
+- width & height: sets specific size for the content box
+- padding: space inside of the element
+- margin: space outside of the element
+- border: displays between the padding and margin
+https://www.washington.edu/accesscomputing/webd2/student/unit3/images/boxmodel.gif
+
+font-size, line-height, box model properties use measurement units
+pixels (px) — fixed sizing with more control
+percentages (%) — size element relative to containing element
+
+(padding-top, padding-right, padding-bottom, padding-left) or just padding (top right bottom left
+
+padding: 2px; (same on all sides)
+padding: 2px 10px; (top & bottom, right & left)
+padding: 2px 10px 5px; (top, right&left, bottom)
+
+border: width style color
+or
+border-width
+border-style
+border-color
+
+border-top-width
+
+
+margin & negative values
+- by default, block elements stack on top of each other
+- negative margin values are used to move elements outside of the stacking position
+
+margin & auto-align
+- margin to center align content blocks
+div {
+	width: 950px;
+	margin: 0 auto;
+}
+
+max-width: 950px — if the size of the width of the browser is smaller than 950, then it becomes the width of the browser
+
+padding —> add space inside element to push the content away from edge of its container
+margin —> add space around element to push other elements away from it
+
+self-clearing floats: overflow
+overflow: auto or overflow: hidden
+<div class=“parent”>
+	<div class=“floated”>floated element</div>
+	<div class=“floated”>floated element</div>
+</div>
+.floated {
+	float: left;
+}
+.parent {
+	overflow: hidden;
+	/* OR */
+	overflow: auto;
+}
+
+http://css-tricks.com/snippets/css/clear-fix/
+
+padding & border affect the image, so add this to the project:
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+
+padding only accepts positive numbers & adds space inside of an element or removes default padding when set to zero
+
+margin adds or removes space around the element & accepts negative values, too
+margin can be used to center align block level elements
+
+border is added around the content between padding & margin
+
+before & after
+http://www.456bereastreet.com/i/box-model.gif
+
+adding padding to a float inline element, automatically changes it to a block level element
+
+- position is used to arrange elements relative to the default page flow or browser viewport
+- 5 values: relative, absolute, fixed, static, inherit
+- position is used with a combination of offset properties: top, right, bottom, left
+.box {
+	position: relative;
+	top: 10px;
+}
+
+static
+- default value, elements not positioned at all
+
+inherit
+- inherits value from ancestor element
+
+relative, absolute, & fixed
+- can be positioned within a containing element or browser viewport
+
+reset stylesheet vs normalize stylesheet
+
+http://fontawesome.io
+http://fontawesome.io/examples/
+
+
+
+
+
+graceful degradation
+- design for modern browsers first
+- provide fallbacks for unsupported features
+- ensure basic functionality works for older browsers
+
+progressive enhancement
+- focus on content and accessibility first
+- create base-level experience first
+- add advance features for enhancements

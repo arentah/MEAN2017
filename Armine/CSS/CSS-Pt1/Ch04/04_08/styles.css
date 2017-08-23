@@ -1,0 +1,22 @@
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+.wrapper {
+  width: 400px;
+}
+.box {
+  float: left;
+  width: 200px;
+  height: 100px;
+  padding: 20px;
+  border: 1px solid black;
+}
+.box1 {
+  background: lightblue;
+}
+.box2 {
+  background: lightgreen;
+}

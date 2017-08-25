@@ -21,6 +21,19 @@ html {
 .education h1 {
     font-size: 40px;
     margin-top: 0;
+    margin-bottom: 0;
+    /*float: left;
+    display: inline-block; //use only with hor.2*/
+}
+
+.horizontal-line2{
+    background-color: white;
+    height: 1px;
+    width: 79%;
+    margin-top: 35px;
+    margin-bottom: 5px;
+    float: left;
+    display: inline-block;
 }
 
 .narrow{
@@ -37,19 +50,36 @@ html {
     margin-top: -20px;
 }
 
-.narrow2 {
+.narrow3{
     float: left;
-    width: 40%;
-}
-.wide2{
-    float: right;
-    width: 55%;
-    margin-left: 5%;
+    width: 45%;
+    min-height: 40px;
+
 }
 
-.wide h3{
-    margin: 0;
+.wide3{
+    float: left;
+    width: 55%;
+    min-height: 40px;
+    text-align: right;
 }
+
+.horizontal-line{
+    background-color: white;
+    height: 1px;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+
+
+.top-bottom-zero{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
 
 body {
     margin: 0;
@@ -61,11 +91,13 @@ h1, h2, h3, h4, p{
 }
 
 .top{
+    margin-top: 0;
     margin-bottom: 0;
 }
 .indent {
     margin-left: 30px;
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 

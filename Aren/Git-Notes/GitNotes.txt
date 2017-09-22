@@ -1,0 +1,96 @@
+COMMANDS
+==============================
+git diff --------------------> to see the changes between working and staging first you modify a file in working then you
+ 			       can see the changes between working and between staging once you run "git add" to the
+                               modifited file, git diff will not show any differences this is because the working and 
+			       staging now match
+git diff --staged -----------> running this command right after what happened above, will display the differences between
+                               staging and the repository and running git commit -m " " will finalize the changes once 
+			       finalized running git diff --staged will not display anything
+
+git reset -------------------> to unstage all
+git reset --hard ------------> to unstage and remove any modifications
+git status ------------------> to display working directory w/ modifictions and untracked files
+git log ---------------------> display all commits from the current branch (current branch could be master branch)
+git commit -a " " -----------> to add file to staging, getting ready to commit
+git commit -m " " -----------> to commit to repo
+
+git checkout ----------------> input either master, a branch, or commit id after checkout to move head to that location
+git checkout -f -------------> redo deletes
+git branch ------------------> display all branches, * means you are at this branch
+git branch " " --------------> create new branch with name " "
+git branch -d " " -----------> delete branch
+git checkout -b newbranch ---> create new branch and checkout
+
+git push " " --delete " " ---> delete remote branch with the first " " being the remote name
+git show " " ----------------> insert commit id in " " to see the changes this commit made against its parent, you can also use
+		               git diff but sometimes you might not know the parent of the commit so you use git show instead
+git log --graph --oneline ---> display the log of all commits in graph formate, the --oneline arugment displays it in
+			       single lines
+git merge " " " " -----------> combines the first " " branch and the second " " branch to the current branch
+git merge --abort -----------> stop merge
+git remote ------------------> to see all current remotes
+git remote add " " " " ------> adding remote, first " " is the name (usually origin) and second is the url to remote
+			       use ssh instead of https because https requires username:password which is set in plain
+			       text.
+git remote rm " " -----------> use to remove remote with the name of the remote in " "
+git remote set-url " " " " --> setting the remote url, first " " is the name (usually origin) and second is the url to remote
+			       this could be either https or ssh, for https use https://username:password@
+
+shh key generation ----------> ex:  ssh-keygen -t rsa -b 4096 -C "aren.tahmasian.745@my.csun.edu"
+check if ssh already exists -> ls -la ~/.ssh (checking if ssh exists inside home folder ~)
+test if shh key working -----> eval $(ssh-agent -s)
+
+git push " " " " ------------> to push commits to remote repo, first " " is the name of remote (usually origin) and 
+			       second " " is the branch you are pushing (usually master)
+git push " " "+ " -----------> force push to repo, good if you accidently pushed a commit you did not want
+git pull " " " " ------------> to pull commits from a remote repo, first " " is the name of remote (usually origin) and 
+			       second " " is the branch you are pulling (usually master)
+
+git rebase -i ---------------? remove commit that you have no pushed to anywhere 
+git rebase -i HEAD~N --------? remove commit up to the nth commit 
+git reset --hard HEAD~1 -----> remove last commit
+git reset --hard HEAD^ ------> remove last commit
+git reset --hard HEAD~N -----> remove last commit up to the nth
+git push " " HEAD --force ---> force repo to be at the same commit as the one that you are pushing, basically it removes a commit from
+			       repo
+git add " " -----------------> place file name within " " or simply * to add everthing, adding puts the files on the stage where it can
+			       be commited
+
+TERMS
+==============================
+push/pull -------------------> sending and receiving files from remote (ex: github)
+fork ------------------------> is used when you do not have permissions to make modifications on a project, so you fork
+			       your own copy that you are able to modify, similar to cloning in fact a fork is a clone
+			       that github makes for you 
+fetch -----------------------> when differing modifications are done locally and on the remote, you can fetch the changes and
+			       update the origin/master remote branch while retaining your local master branch, otherwise if you
+			       ran git pull it would override your local master changes
+pull request ----------------> aka merge request, asking for permission to pull/merge your fork to the someone else's master  
+
+
+Resolving Merge Conflict
+==============================
+<<<<<HEAD ( your code that was modified from the middle ||||| )				   
+
+{Head code}
+
+|||||| merged common ancestors ( original version that both branches modifiedd)
+
+{original code}
+
+=======
+
+{master code}
+
+>>>>>master ( the master code that was modified from the middle ||||| )
+
+NOTES
+==============================
+*Storing Github username and password, https://youruser:password@github.com/user/repo.git, will be stored in plaintext 
+	in your .git file
+*git pull == git fetch + git merge, it first fetches the changes and addes them to the origin/master branch then it 
+	merges with your local master and subsequently deletes the origin/master branch 
+*fast forward merge is if the branch you are merging into is an ancestor of the branch you are merging from, if you can reach
+	the branch you are going to merge into from the branch you already are on then it's a fast forward merge
+*git config --system core.longpaths true (use if long path lengths are problematic on windows)

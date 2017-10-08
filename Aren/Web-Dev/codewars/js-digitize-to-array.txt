@@ -1,0 +1,28 @@
+//My Correct Answer
+let digitize = (n) => {
+
+    let arr = Array.from(n.toString()).map(Number);
+    arr.reverse();
+    return arr;
+
+};
+
+//Another Correct
+function digitize(n){
+  return (n + '').split('').map(Number).reverse();
+}
+
+//Another Correct
+function digitize(n) {
+  return String(n).split('').map(Number).reverse()
+}
+
+//Another Correct
+function digitize(n) {
+  return n.toString().split("").reverse().map(Number);
+}
+
+//Another Correct
+function digitize(n) {
+  return Array.from(String(n), Number).reverse();
+}

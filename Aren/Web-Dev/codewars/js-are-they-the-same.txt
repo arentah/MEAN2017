@@ -1,0 +1,72 @@
+//My Correct Answer
+function comp(array1, array2){
+   var bool = true;
+   if(array1 === null || array2 === null){
+       return false;
+   }
+   if(array1.length !== array2.length){
+       return false;
+   }
+
+   for(let i = 0; i < array1.length; i++){
+       if(bool === false){
+           return bool;
+       }
+       for(let j = 0; j < array2.length; j++){
+
+           if((array1[i]*array1[i]) === array2[j]){
+
+               array2[j] = -1;
+
+               bool = true;
+               break;
+           }
+           else{
+               bool = false;
+           }
+       }
+   }
+   return bool;
+}
+
+//Another Correct Answer
+function comp(array1, array2) {
+  if(array1 == null || array2 == null) return false;
+  array1.sort((a, b) => a - b); array2.sort((a, b) => a - b);
+  return array1.map(v => v * v).every((v, i) => v == array2[i]);
+}
+
+//Another Correct Answer
+function comp(array1, array2) {
+  let arr1 = array1? array1.map(e => e * e).sort((a, b) => a - b): 1;
+  let arr2 = array2? array2.sort((a, b) => a - b).join(''): 1;
+  return arr1.join('') == arr2;
+}
+
+//Another Correct Answer
+const comp = (array1, array2) => 
+  Array.isArray(array1) &&
+  Array.isArray(array2) &&
+  array1.every(item => {
+    const index = array2.indexOf(Math.pow(item, 2))
+    return index > -1 ? array2.splice(index, 1) : false
+  })
+
+//Another Correct Answer
+function comp(arr1,arr2){
+  if(!arr1 || !arr2) return false;
+  arr1.map(function(x){
+    arr2.map(function(y){
+      if(x*x == y){
+        const ind = arr2.indexOf(y);
+        arr2.splice(ind,1)
+      }
+    })
+  })
+  return arr2.length == 0
+}
+
+//Another Correct Answer
+function comp(array1, array2){
+  return !!array2 && !!array1 && array2.every( a=> array1.some( (b,i)=> a===b*b && delete array1[i] ) )  
+}

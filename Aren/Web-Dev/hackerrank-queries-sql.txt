@@ -1,0 +1,46 @@
+Joins
+------------
+1) 
+
+//Correct answer
+select sum(city.population) from city left join country on city.countrycode=country.code where country.continent = 'Asia' //Verified with select sum(population) from city where countrycode = 'AFG' or countrycode = 'BGD' or countrycode = 'AFG' or countrycode = 'IDN' or countrycode = 'IND' or countrycode = 'PHL'
+
+//Countries in Asia that do not overlap with countries in Asia from above query
+select sum(country.population) from country left join city on country.code=city.countrycode where city.countrycode is null and country.continent = 'Asia'
+
+//Correct answer if you want to add the top two queries
+select sum((select sum(city.population) from city left join country on city.countrycode=country.code where country.continent = 'Asia')+(select sum(country.population) from country left join city on country.code=city.countrycode where city.countrycode is null and country.continent = 'Asia'))
+
+//Another correct answer
+SELECT SUM(City.population) FROM Country INNER JOIN City ON Country.Code = City.CountryCode WHERE Country.Continent='Asia';
+
+3) 
+
+//Correct answer
+SELECT country.continent,floor(avg(city.population)) FROM Country INNER JOIN City ON Country.Code = City.CountryCode group by country.continent;
+
+//Another correct answer
+SELECT Country.Continent, FLOOR(AVG(City.Population)) FROM Country, City WHERE Country.Code = City.CountryCode GROUP BY Country.Continent ;
+
+4) 
+
+//Correct answer
+select case when (marks < 70 and marks >= 0) then ("NULL") else name end, 
+       case when (marks < 10) then 1
+            when (marks > 9 and marks < 20) then 2 
+            when (marks > 19 and marks < 30) then 3
+            when (marks > 29 and marks < 40) then 4
+            when (marks > 39 and marks < 50) then 5
+            when (marks > 49 and marks < 60) then 6
+            when (marks > 59 and marks < 70) then 7
+            when (marks > 69 and marks < 80) then 8
+            when (marks > 79 and marks < 90) then 9
+            when (marks > 89 and marks < 101) then 10 
+            end as grade, 
+marks from students order by grade desc, name asc
+
+//Another correct answer
+SELECT IF (S.Marks < 70, 'NULL', S.Name), G.Grade, S.Marks
+FROM Students AS S, Grades AS G
+WHERE S.Marks BETWEEN G.Min_Mark AND G.Max_Mark
+ORDER BY G.GRADE DESC, S.NAME;

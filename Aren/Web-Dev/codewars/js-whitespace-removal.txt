@@ -1,0 +1,18 @@
+//My Correct Answer
+let removeSpace = (str) => {
+    return String(str).replace(/\s/g,'');
+};
+
+//Another Correct Answer
+function noSpace(x){
+  return x.replace(/\s/g, '');
+}
+
+//Another Correct Answer
+function noSpace(x){return x.split(' ').join('');}
+
+//Another Correct Answer
+function noSpace(x){
+  if (typeof x === 'string') return x.replace(/ +/g, '');
+  console.log(arguments.callee.name + ': Argument must be string!');
+}

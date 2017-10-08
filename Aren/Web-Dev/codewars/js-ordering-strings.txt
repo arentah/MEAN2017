@@ -1,0 +1,99 @@
+//My Correct Answer
+function order(words){
+    if(words === ""){
+        return "";
+    }
+    words = words.split(" ");
+
+    let arya = new Array(words.length);
+
+    for(let i = 0; i < words.length; i++){
+
+        let tmp = words[i];
+
+        for(let j = 0; j < words[i].length; j++){
+
+            if(tmp[j] == 1){
+                arya[0] = tmp;
+            }
+            else if(tmp[j] == 2){
+                arya[1] = tmp;
+            }
+            else if(tmp[j] == 3){
+                arya[2] = tmp;
+            }
+            else if(tmp[j] == 4){
+                arya[3] = tmp;
+            }
+            else if(tmp[j] == 5){
+                arya[4] = tmp;
+            }
+            else if(tmp[j] == 6){
+                arya[5] = tmp;
+            }
+            else if(tmp[j] == 7){
+                arya[6] = tmp;
+            }
+            else if(tmp[j] == 8){
+                arya[7] = tmp;
+            }
+            else if(tmp[j] == 9){
+                arya[8] = tmp;
+            }
+        }
+    }
+
+    let finalString = "";
+    for(let k = 0; k < arya.length; k++){
+        if(k != arya.length-1){
+            finalString += arya[k] + " ";
+        }
+        else{
+            finalString += arya[k];
+        }
+    }
+    return finalString;
+}
+
+//Another Correct Answer
+function order(words){
+  
+  return words.split(' ').sort(function(a, b){
+      return a.match(/\d/) - b.match(/\d/);
+   }).join(' ');
+}  
+
+//Another Correct Answer
+var reg = /\d/;
+
+function order(words){
+  return words.split(' ').sort(comparator).join(' ');
+}
+
+function comparator(word, nextWord) {
+  return +word.match(reg) - +nextWord.match(reg)
+}
+
+//Another Correct Answer
+function order(words){
+  var array = words.split(' ');
+  var sortedArray = [];
+  for(i = 0; i <= array.length; i++) {
+    for(j = 0; j < array.length; j++) {
+      if(array[j].indexOf(i) >= 0) {
+        sortedArray.push(array[j]);
+      }
+    }
+  }
+  return sortedArray.join(' ');
+}
+
+//Another Correct Answer
+function order(words) {
+  return words.split(' ').sort((wordA, wordB) => wordA.match(/\d+/) > wordB.match(/\d+/)).join(' ')
+}
+
+//Another Correct Answer
+function order(words) {
+  return words.split(" ").sort((a, b) => a.replace(/[^\d]/g, "") - b.replace(/[^\d]/g, "")).join(" ")
+}

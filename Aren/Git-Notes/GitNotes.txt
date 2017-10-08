@@ -1,5 +1,5 @@
 COMMANDS
-==============================
+=======================================================================================================================================
 git diff --------------------> to see the changes between working and staging first you modify a file in working then you
  			       can see the changes between working and between staging once you run "git add" to the
                                modifited file, git diff will not show any differences this is because the working and 
@@ -7,6 +7,10 @@ git diff --------------------> to see the changes between working and staging fi
 git diff --staged -----------> running this command right after what happened above, will display the differences between
                                staging and the repository and running git commit -m " " will finalize the changes once 
 			       finalized running git diff --staged will not display anything
+git diff --stat -------------> followed by origin/master (or one or the other) shows what was recently added, this is good because
+			       git diff will not show any changes when adding a new file, only when you modifiy a file
+git diff --numstat ----------> same as git diff --stat but with a different output, first number is lines added and second is lines
+			       removed. e.g. git diff --numstat origin/master, git diff --stat origin/master
 
 git reset -------------------> to unstage all
 git reset --hard ------------> to unstage and remove any modifications

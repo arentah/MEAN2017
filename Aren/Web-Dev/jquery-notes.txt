@@ -1,0 +1,116 @@
+jQuery exists to reduce browser compatibility and to focus on UX, it also reduces the lines of code necessary to perform a certain 
+task, e.g. creating/manipulating DOM objects and easy DOM manipulation
+	Javascript w/o jQuery
+		var div = document.createNode('div'); //create div
+		div.innerHTML = "Hello World!"; //place text into div 
+		var parent = document.querySelecctor('#parent); //query parent object
+		parent.appendChild(div); //add div as a child to parent object
+	javascript with jQuery
+		$('#parent').append("<div>Hello World!</div>"); //creates and adds div object, with Hello World! inside it, and adds 
+							        //under parent object
+-javascript functions are also objects
+-$ maps to same object as simply typing jQuery into console, $ is just a function for jQuery
+-jQuery can modify CSS as well, but the modifcations are inline css
+
+Hosting jQuery for a Website //no matter which one you use, make sure to use minified version in production because it is considerably
+			     // smaller and thus faster to load
+1)local 
+	<script src='js/jquery.min.js></script>
+	//local jQuery
+2)jQuery Official 
+	<script src='//code.jquery.com/jquery-1.11.1.min.js'></script>
+	//jQuery offical host
+3)Content Delivery Network (CDN) 
+	<script src='//ajax.googleapis.com/ajax/lib/jquery/1.11.1/jquery.min.js'></script>
+	//much faster than your own server and it allows caching
+
+Selecting Elements in DOM
+1)$('tag')
+	e.g. $('div')
+2)$('.class')
+	e.g $('.organizer')
+3)$('#id') 
+	e.g $('#organizer')
+
+Navigating the DOM tree
+$().parent()
+	//returns parent
+$().parents()
+	//returns parent of parents all the way up the chain
+	//identifying argument can be passed inside parents() e.g. '#mother' or '#grandparent'
+$().children()
+	//returns all children
+	//identifying argument can be passed inside children() e.g. '#viserion' or '#rhaegal' or '#drogon' 
+$().find(*)
+	//argument is mandatory, * means all if you don't want just a specific one
+	//returns childrens childrens all the way down the chain
+	//identifying argument can be passed inside children() e.g. '#viserion' or '#rhaegal' or '#drogon' 
+$().siblings()
+	//returns all siblings
+
+jQuery API Documentation //http://api.jquery.com/
+-arguments inside () are manadatory
+-arguments inside ( [] ) are optional
+
+.toggleClass() //toggle classes on DOM elements
+	var toggleExample = $('.menu');
+	toggleExample.toggleClass('menu'); 
+
+.next() //finds next immediate sibling element, can also can an argument to filter
+
+.attr() //one argument = get attribute value, two arguments = set attribute value e.g ("src", "google.com")
+
+.first() //get first element in set
+
+.css() //to modify inline css properties; e.g $('div').css("font-size","24px");
+
+.html() //to get all html from a given selector(s)
+
+.text() //same as html but only returns text and not the html elements, not used for getting input field text value
+.text("sometext") //with argument, it sets text value
+
+.val() //to get text from input field text area
+
+.remove() //to remove element, you can also pass a selector to remove specific element 
+
+.append() //adds element as the last child of selected element, e.g. adding a paragraph (p) to a div or adding text to a paragraph (p)
+
+.prepend() //adds element as the first child of selected element
+
+.insertBefore() //adds sibiling element before current element
+
+.insertAfter() //adds sibiling element after current element
+
+.after() //same as insertAfter() except it follows normal syntax like .append()
+
+.before() //same as insertBefore() except it follows normal syntax like .append() 
+
+document.ready //executes when page loads
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -85,11 +85,19 @@ jQuery API Documentation //http://api.jquery.com/
 
 .before() //same as insertBefore() except it follows normal syntax like .append() 
 
+.addClass() //adds class
+
 document.ready //executes when page loads
 
+Three Necessary Conditions for Event Listeners
+----------------------------------------------
+1) (element) the target element to listen to
+2) (event) the event we want to react to (keypress, mouseover, click, change)
+3) (action) to actions to take in response
 
+.on() is the primary event listenting function in jQuery 
 
-
+$( _ ).on( _ , _ ); //element, event, action 
 
 
 

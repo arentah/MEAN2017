@@ -1,0 +1,16 @@
+div ~p{
+    background-color: #12483E;
+}
+
+p{
+    margin: 0;
+
+}
+
+p:hover{
+    background-color: #1938De;
+}
+
+p.test-class {
+    color: red;
+}

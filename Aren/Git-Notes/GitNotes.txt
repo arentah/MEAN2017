@@ -2,7 +2,7 @@ COMMANDS
 =======================================================================================================================================
 git diff --------------------> to see the changes between working and staging first you modify a file in working then you
  			       can see the changes between working and between staging once you run "git add" to the
-                               modifited file, git diff will not show any differences this is because the working and 
+                               modified file, git diff will not show any differences after this because the working and 
 			       staging now match
 git diff --staged -----------> running this command right after what happened above, will display the differences between
                                staging and the repository and running git commit -m " " will finalize the changes once 
